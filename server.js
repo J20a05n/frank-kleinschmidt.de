@@ -1,21 +1,17 @@
-const http = require('http');
-const fs = require('fs');
+require('dotenv').config();
+const express = require('express');
 const path = require('path');
 
-const server = http.createServer((req, res) => {
-  const filePath = path.join(__dirname, 'index.html');
-  fs.readFile(filePath, (err, content) => {
-    if (err) {
-      res.writeHead(500);
-      res.end('Error loading index.html');
-    } else {
-      res.writeHead(200, { 'Content-Type': 'text/html' });
-      res.end(content, 'utf-8');
-    }
-  });
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
+app.get('/', (req, res) => {
+  res.render('index');
 });
 
-const port = 7676;
-server.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}/`);
+app.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}/`);
 });
