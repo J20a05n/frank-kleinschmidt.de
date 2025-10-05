@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    color: #e0e0e0;
+    background: linear-gradient(-45deg, #0a0a0a, #1a1a1a, #2a2a2a, #000000);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    cursor: none;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5),
+                 0 0 20px rgba(0, 255, 255, 0.5),
+                 0 0 30px rgba(0, 255, 255, 0.3),
+                 0 0 40px rgba(0, 255, 255, 0.2);
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px rgba(0, 255, 255, 0.5),
+                     0 0 20px rgba(0, 255, 255, 0.5),
+                     0 0 30px rgba(0, 255, 255, 0.3),
+                     0 0 40px rgba(0, 255, 255, 0.2);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(0, 255, 255, 0.7),
+                     0 0 30px rgba(0, 255, 255, 0.7),
+                     0 0 40px rgba(0, 255, 255, 0.5),
+                     0 0 50px rgba(0, 255, 255, 0.4);
+    }
+}
+
+p {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+}
+
+.wip-text {
+    font-weight: 400;
+    border: 2px solid #00ffff;
+    padding: 15px 30px;
+    display: inline-block;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+#starfield, #mouse-trail {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#starfield {
+    z-index: 0;
+}
+
+#mouse-trail {
+    z-index: 1;
+    pointer-events: none;
+}
+
+.attribution {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 100;
+    font-size: 12px;
+    color: #555;
+    pointer-events: auto;
+}
+
+.attribution a {
+    color: #777;
+    text-decoration: none;
+    border-bottom: 1px dotted #777;
+    cursor: pointer;
+}
+
+.attribution a:hover {
+    color: #ccc;
+    border-bottom-color: #ccc;
+}
